@@ -25,7 +25,7 @@ export default function Home() {
 
   return (
     <Wrapper>
-      <Header />
+      {/* <Header /> */}
       <BackBrand />
       <MiningTimer />
       <DailyProfit />

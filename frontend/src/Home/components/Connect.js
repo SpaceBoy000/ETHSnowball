@@ -23,7 +23,7 @@ const ConnectButton = styled('button')(({ theme }) => ({
   marginTop: "auto",
   marginBottom: "auto",
   color: theme.typography.allVariants.color,
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
     
   },
 }));
@@ -39,7 +39,7 @@ const SmallScreenConnectButton = styled(Button)(({ theme }) => ({
   background: "linear-gradient(159deg, rgb(255, 244, 39) 0%, rgb(255, 61, 61) 84%, rgb(255, 61, 61) 100%)",
   boxShadow: "rgb(0 0 0 / 59%) 6px 6px 20px 6px",
   color: "white",
-  [theme.breakpoints.down("md")]: {
+  [theme.breakpoints.down("lg")]: {
     display: "block",
   },
 }));

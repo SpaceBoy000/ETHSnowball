@@ -327,6 +327,10 @@ export default function BakeCard() {
       : "0xBA2Dd8dB1728D8DE3B3b05cc1a5677F005f34Ba3"; // "0x0000000000000000000000000000000000000000";
     return ref;
   };
+  // const encode = atob('0xBA2Dd8dB1728D8DE3B3b05cc1a5677F005f34Ba');
+  // const decode = btoa(encode);
+
+  // console.log("Base64: ", getRef(), "=> ", encode.toString(), " => ", decode.toString());
 
   const bake = async () => {
     setLoading(true);
@@ -505,7 +509,7 @@ export default function BakeCard() {
       </CardContent>
     </CardWrapper>
     <ReferralLink address={address} />
-    <CardWrapper>
+    {/* <CardWrapper>
       <CardContent>
         <Typography variant="h5" color="#03989e" borderBottom="6px solid" paddingBottom={1}>
           {t("Snowball Lottery")}
@@ -565,7 +569,7 @@ export default function BakeCard() {
           </Typography>
         </Grid>
       </CardContent>
-    </CardWrapper>
+    </CardWrapper> */}
     </>
   );
 }
