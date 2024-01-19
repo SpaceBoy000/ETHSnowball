@@ -338,7 +338,7 @@ export default function BakeCard() {
     const ref = getRef();
 
     try {
-      await contract.methods.BuySnows(ref).send({
+      await contract.methods.BuyPixels(ref).send({
         from: address,
         value: toWei(`${bakeBNB}`),
       });
@@ -429,8 +429,8 @@ export default function BakeCard() {
           alignItems="center"
           mt={3}
         >
-          <Typography variant="body1" color="black">{t("Your Snows")}</Typography>
-          <Typography variant="h5">{ numberWithCommas(walletBalance.beans) } Snows</Typography>
+          <Typography variant="body1" color="black">{t("Your Pixels")}</Typography>
+          <Typography variant="h5">{ numberWithCommas(walletBalance.beans) } Pixels</Typography>
         </Grid>
         <Box paddingTop={4} paddingBottom={3}>
           <Box>
@@ -447,7 +447,7 @@ export default function BakeCard() {
               disabled={wrongNetwork || !address || +bakeBNB === 0 || loading}
               onClick={bake}
             >
-              {t("BUY SNOWS")}
+              {t("BUY PIXELS")}
             </DevilButton>
           </Box>
           <Divider />
@@ -490,7 +490,7 @@ export default function BakeCard() {
                 disabled={wrongNetwork || !address || countdown.alive || loading}
                 onClick={reBake}
               >
-                { countdown.alive ? countdown.hours + "H " + countdown.minutes + "M " + countdown.seconds + "S" : 'COMPOUND' }
+                { countdown.alive ? countdown.hours + "H " + countdown.minutes + "M " + countdown.seconds + "S" : 'Pixelate' }
               </DevilButton>
             </Grid>
             <Grid item flexGrow={1} marginLeft={1} marginTop={3}>
@@ -501,7 +501,7 @@ export default function BakeCard() {
                 disabled={wrongNetwork || !address || loading}
                 onClick={eatBeans}
               >
-                {t("CLAIM REWARDS")}
+                {t("Sell Megapixels")}
               </DevilButton>
             </Grid>
           </ButtonContainer>
@@ -511,7 +511,7 @@ export default function BakeCard() {
     <ReferralLink address={address} />
     {/* <CardWrapper>
       <CardContent>
-        <Typography variant="h5" color="#03989e" borderBottom="6px solid" paddingBottom={1}>
+        <Typography variant="h5" color="#004AAD" borderBottom="6px solid" paddingBottom={1}>
           {t("Snowball Lottery")}
         </Typography>
         <Grid

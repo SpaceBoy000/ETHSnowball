@@ -69,7 +69,7 @@ export default function ReferralLink({ address }) {
         <Typography gutterBottom variant="h5" textAlign="left" color="white">
           {t("Referral Link")}
         </Typography>
-        <Input sx={{color:"#03989e", fontSize:"15px", cursor:"pointer", fontWeight:"bolder"}} onClick={onCopyReferral} value={address ? link : ""} readOnly />
+        <Input sx={{color:"#004AAD", fontSize:"15px", cursor:"pointer", fontWeight:"bolder"}} onClick={onCopyReferral} value={address ? link : ""} readOnly />
 
         {/* <DevilButton
           variant="contained"
@@ -85,7 +85,7 @@ export default function ReferralLink({ address }) {
           marginTop={2}
           paddingX={3}
         >
-          {t("Earn 5% of the ETH used to buy Snows from anyone who uses your referral link")}
+          {t("Earn 10% of the ETH used to buy Pixels from anyone who uses your referral link")}
         </Typography>
       </CardContent>
     </CardWrapper>

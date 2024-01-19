@@ -20,7 +20,7 @@ export default function DailyProfit() {
   return (
     <CardWrapper>
         <Typography variant="h6" textAlign="center" color="black">
-          {t("3% Daily Earnings")}
+          {t("8% Daily Earnings")}
         </Typography>
     </CardWrapper>
   );

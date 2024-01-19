@@ -9,7 +9,7 @@ const theme = createTheme({
       main: "#f4b52d",
     },
     purple: {
-      main: "#047d82",
+      main: "#004AAD",
     },
     text: {
       primary: "#17215E",
@@ -17,10 +17,10 @@ const theme = createTheme({
   },
   button: {
     primary: {
-      main: "#047d82",
+      main: "#004AAD",
     },
     secondary: {
-      main: '#03989e',
+      main: '#004AAD',
     }
   },
   typography: {
@@ -34,17 +34,17 @@ const theme = createTheme({
     },
     body5: {
       fontSize: 40,
-      color: "rgb(123,63,228)",
+      color: "#004AAD",
       fontWeight: 900,
     },
     body6: {
       fontSize: 40,
-      color: "rgb(123,63,228)",
+      color: "#004AAD",
       fontWeight: 900,
     },
     body7: {
       fontSize: 14,
-      color: "rgb(123,63,228)",
+      color: "#004AAD",
       fontWeight: 900,
     },
     allVariants: {
@@ -64,7 +64,7 @@ const theme = createTheme({
     h5: {
       fontSize: 24,
       fontWeight: 500,
-      color: '#03989e',
+      color: '#004AAD',
     },
   },
   components: {
