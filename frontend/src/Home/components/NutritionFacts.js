@@ -26,15 +26,15 @@ export default function NutritionFacts() {
   const nutritionFacts = [
     {
       label: t("Daily Return"),
-      value: 3,
+      value: 8,
     },
     {
       label: t("APR"),
-      value: "1,095",
+      value: "2,920",
     },
     {
       label: t("Dev Fee"),
-      value: 10,
+      value: 5,
     },
   ];
 
@@ -42,7 +42,7 @@ export default function NutritionFacts() {
     <CardWrapper>
       <CardContent>
         <Typography variant="h5" color="white" borderBottom="6px solid" paddingBottom={1}>
-          {t("ETH Snowball Details")}
+          {t("Pixel Miner Details")}
         </Typography>
         <Box paddingTop={2}>
           {nutritionFacts.map((f) => (

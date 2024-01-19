@@ -8,6 +8,7 @@ import Grid from "@mui/material/Grid";
 import { Link } from 'react-router-dom'
 import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi"
+import { config } from "../../config";
 
 const Wrapper = styled("div")(({ theme }) => ({
   // position: "fixed",
@@ -58,85 +59,61 @@ export default function Header() {
 
   return (
     <Wrapper>
-      { mobile === true ? (
+      {mobile === true ? (
         <div>
           <div className="mobile_head">
             <div className="mobile_herader_content">
-              <div style={{alignSelf:"center", marginBottom:"30px"}}>
-                <img src="./favicon.png" alt="ETH Snowball" width="60px"/>
+              <div style={{ alignSelf: "center", marginBottom: "30px" }}>
+                <img src="./favicon.png" alt="ETH Snowball" width="60px" />
               </div>
               <div className="mobile_four_btn">
-                <div onClick= {() => {
-                  setMobile(true)
-                }}>
-                  <Link
-                    to="/miner"
-                    className="swap_btn"
-                    style={{
-                      color: 'white',
-                      textDecoration: 'none',
-                      fontWeight:"bolder"
-                    }}
-                  >
-                    Miner
-                  </Link>
-                </div>
                 <div onClick={() => {
                   setMobile(true)
                 }}>
-                  <Link
-                    to="/nft"
-                    className="stable_btn"
-                    style={{
-                      color: 'white',
-                      textDecoration: 'none',
-                      fontWeight:"bolder"
-                    }}
-                  >
-                    NFT
-                  </Link>
-                </div>
-                <div onClick={() => {
-                  setMobile(true)
-                }}>
-                  <Link
-                    to="/gamefi"
-                    className="bridge_btn"
-                    style={{
-                      color: 'white',
-                      textDecoration: 'none',
-                      fontWeight:"bolder"
-                    }}
-                  >
-                    Gamefi
-                  </Link>
-                </div>
-                <div onClick={() => {
-                  setMobile(true)
-                }}>
-                  <Link
-                    to="/marketplace"
-                    className="liquidity_btn"
-                    style={{
-                      color: 'white',
-                      textDecoration: 'none',
-                      fontWeight:"bolder"
-                    }}
-                  >
-                    NFT Marketplace
-                  </Link>
+                  <Typography variant="h6">
+                    <a href="/whitepaper.pdf" target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
+                      Docs
+                    </a>
+                  </Typography>
                 </div>
                 <div onClick={() => {
                   setMobile(true)
                 }}>
                   <Typography variant="h6">
-                    <a href="/roadmap.jpg" target="_blank" style={{textDecoration: 'inherit', color:"white"}}>
-                      RoadMap
+                    <a href={config.scanLink} target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
+                      Contract
+                    </a>
+                  </Typography>
+                </div>
+                <div onClick={() => {
+                  setMobile(true)
+                }}>
+                  <Typography variant="h6">
+                    <a href="/" target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
+                      Audit
+                    </a>
+                  </Typography>
+                </div>
+                <div onClick={() => {
+                  setMobile(true)
+                }}>
+                  <Typography variant="h6">
+                    <a href="https://t.me/" target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
+                      Telegram
+                    </a>
+                  </Typography>
+                </div>
+                <div onClick={() => {
+                  setMobile(true)
+                }}>
+                  <Typography variant="h6">
+                    <a href="https://twitter.com/" target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
+                      Twitter
                     </a>
                   </Typography>
                 </div>
               </div>
-              <div style={{flex:1}}></div>
+              <div style={{ flex: 1 }}></div>
               <div
                 className="mobile_connect"
               >
@@ -152,79 +129,52 @@ export default function Header() {
           </div>
         </div>
       )
-      : null }
-   
+        : null}
+
       <Grid container spacing={2}>
         <Grid item xs={9} sm={6} md={3}>
           <Item>
-            <img src={logo} alt="" style={{ maxHeight: "32px", marginRight: "16px" }} />
-            <Typography variant="h5" textAlign="center" color='#03989e'>
-              ETH Snowball
-            </Typography>
+            <img src={logo} width="128px" alt="" style={{ marginRight: "16px" }} />
           </Item>
         </Grid>
         <Grid className="header_menu" item xs={0} sm={0} md={6}>
           <Item>
-            <Link
-              to="/"
-              style={{
-                color: '#03989e',
-                textDecoration: 'none',
-                fontWeight: "bolder",
-                fontSize: "20px"
-              }}
-            >
-                Miner
-            </Link>
+            <Typography variant="h6" textAlign="center" color='#004AAD'>
+              <a href="/whitepaper.pdf" target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
+                Docs
+              </a>
+            </Typography>
           </Item>
           <Item>
-            <Link
-              to="nft"
-              style={{
-                color: '#03989e',
-                textDecoration: 'none',
-                fontWeight: "bolder",
-                fontSize: "20px"
-              }}
-            >
-                NFT
-            </Link>
+            <Typography variant="h6" textAlign="center" color='#004AAD'>
+              <a href={config.scanLink} target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
+                Contract
+              </a>
+            </Typography>
           </Item>
           <Item>
-            <Link
-              to="/gamefi"
-              style={{
-                color: '#03989e',
-                textDecoration: 'none',
-                fontWeight: "bolder",
-                fontSize: "20px"
-              }}
-            >
-                Gamefi
-            </Link>
+            <Typography variant="h6" textAlign="center" color='#004AAD'>
+              <a href="/" target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
+                Audit
+              </a>
+            </Typography>
           </Item>
           <Item>
-            <Link
-              to="/marketplace"
-              style={{
-                color: '#03989e',
-                textDecoration: 'none',
-                fontWeight: "bolder",
-                fontSize: "20px"
-              }}
-            >
-                NFT Marketplace
-            </Link>
+            <Typography variant="h6" textAlign="center" color='#004AAD'>
+              <a href="https://t.me/" target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
+                Telegram
+              </a>
+            </Typography>
           </Item>
           <Item>
-            <Typography variant="h6" textAlign="center" color='#03989e'>
-              <a href="/roadmap.jpg" target="_blank" style={{textDecoration: 'inherit'}}>
-                RoadMap
+            <Typography variant="h6" textAlign="center" color='#004AAD'>
+              <a href="https://twitter.com/" target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
+                Twitter
               </a>
             </Typography>
           </Item>
         </Grid>
-        <Grid item xs={3} sm={6} md={3} sx={{alignSelf:"center"}}>
+        <Grid item xs={3} sm={6} md={3} sx={{ alignSelf: "center" }}>
           <ItemConnect>
             <Connect />
           </ItemConnect>
@@ -234,7 +184,7 @@ export default function Header() {
               setMobile(true)
             }}
           >
-            <GiHamburgerMenu/>
+            <GiHamburgerMenu />
           </div>
         </Grid>
       </Grid>

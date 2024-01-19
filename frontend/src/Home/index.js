@@ -26,13 +26,13 @@ export default function Home() {
   return (
     <Wrapper>
       {/* <Header /> */}
-      <BackBrand />
+      {/* <BackBrand /> */}
       <MiningTimer />
       <DailyProfit />
       <BakeCard />
       <NutritionFacts />
       {/* <ReferralLink address={address} /> */}
-      <Social />
+      {/* <Social /> */}
       {/* <Footer /> */}
       <Description address={address}/>
     </Wrapper>

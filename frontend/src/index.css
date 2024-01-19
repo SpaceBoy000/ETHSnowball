@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: white;
+  /* background: url(assets/wallpaper.png); */
 }
 
 code {
@@ -27,6 +27,14 @@ code {
 
 .mobile_head {
   display: none;
+}
+
+.main_content {
+  background: url(assets/wallpaper.png);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 900px) {
@@ -60,12 +68,12 @@ code {
     left: 0px;
     background: #1e2c37;
     opacity: 0.9;
-    border-right: 5px solid #047d82;
+    border-right: 5px solid #004AAD;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
     align-items: end;
-    padding: 80px 50px;
+    padding: 80px 30px;
   }
 
   .mobile_four_btn {

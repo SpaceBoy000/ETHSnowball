@@ -27,7 +27,7 @@ export default function PriceInput({ value, max, onChange = () => {} }) {
         min={0}
         max={max}
         value={value}
-        style={{color: '#03989e'}}
+        style={{color: '#004AAD'}}
         onChange={(e) => onChange(e.target.value)}
       />
       <Typography
@@ -36,7 +36,7 @@ export default function PriceInput({ value, max, onChange = () => {} }) {
         top={9+4}
         right={12}
         fontWeight={500}
-        color="#03989e"
+        color="#004AAD"
       >
         ETH
       </Typography>
