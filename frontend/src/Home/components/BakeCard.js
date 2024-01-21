@@ -403,7 +403,7 @@ export default function BakeCard() {
           mt={3}
         >
           <Typography variant="body1" color="black">{t("Contract Balance")}</Typography>
-          <Typography variant="h5">{contractBNB} ETH</Typography>
+          <Typography variant="h5">{contractBNB} ARB</Typography>
         </Grid>
         {/* <Grid
           container
@@ -412,7 +412,7 @@ export default function BakeCard() {
           mt={3}
         >
           <Typography variant="body1" color="black">{t("Total Investment")}</Typography>
-          <Typography variant="h5">{walletBalance.tvls} ETH</Typography>
+          <Typography variant="h5">{walletBalance.tvls} ARB</Typography>
         </Grid> */}
         <Grid
           container
@@ -421,7 +421,7 @@ export default function BakeCard() {
           mt={3}
         >
           <Typography variant="body1" color="black">{t("Wallet Balance")}</Typography>
-          <Typography variant="h5">{walletBalance.bnb} ETH</Typography>
+          <Typography variant="h5">{walletBalance.bnb} ARB</Typography>
         </Grid>
         <Grid
           container
@@ -478,11 +478,11 @@ export default function BakeCard() {
               {t("Your Rewards")}
             </Typography>
             <Typography variant="h5" fontWeight="bolder">
-              {walletBalance.rewards} ETH
+              {walletBalance.rewards} ARB
             </Typography>
           </Grid>
           <ButtonContainer container>
-            <Grid item flexGrow={1} marginRight={1} marginTop={3}>
+            <Grid item flexGrow={1} marginTop={3}>
               <DevilButton
                 variant="contained"
                 color="secondary"
@@ -493,7 +493,7 @@ export default function BakeCard() {
                 { countdown.alive ? countdown.hours + "H " + countdown.minutes + "M " + countdown.seconds + "S" : 'Pixelate' }
               </DevilButton>
             </Grid>
-            <Grid item flexGrow={1} marginLeft={1} marginTop={3}>
+            <Grid item flexGrow={1} marginTop={3}>
               <DevilButton
                 variant="contained"
                 color="secondary"

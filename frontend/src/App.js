@@ -15,11 +15,11 @@ function App() {
         <Box>
           <Layout>
             <Routes>
-              <Route exact path="/" element={ <Navigate to="/miner"/> }/>
-              <Route exact path="/miner" element={ <Home /> }/>
-              <Route exact path="/nft" element={ <NFT /> }/>
+              {/* <Route exact path="/" element={ <Navigate to="/miner"/> }/> */}
+              <Route exact path="/" element={ <Home /> }/>
+              {/* <Route exact path="/nft" element={ <NFT /> }/>
               <Route exact path="/gamefi" element={ <Gamefi /> }/>
-              <Route exact path="/marketplace" element={ <NFTMarketplace /> }/>
+              <Route exact path="/marketplace" element={ <NFTMarketplace /> }/> */}
             </Routes>
           </Layout>
         </Box>

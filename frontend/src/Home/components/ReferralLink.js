@@ -1,11 +1,13 @@
 import CardContent from "@mui/material/CardContent";
 import Card from "@mui/material/Card";
+import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import { styled } from "@mui/system";
 import { useTranslation } from "react-i18next";
 import { Toast } from "../../utils"
+import { numberWithCommas } from "./BakeCard"; 
 
 const CardWrapper = styled("div")(({ theme }) => ({
   maxWidth: 400,
@@ -85,8 +87,26 @@ export default function ReferralLink({ address }) {
           marginTop={2}
           paddingX={3}
         >
-          {t("Earn 10% of the ETH used to buy Pixels from anyone who uses your referral link")}
+          {t("Earn 10% of the ARB used to buy Pixels from anyone who uses your referral link")}
         </Typography>
+        <Grid
+          container
+          justifyContent="space-between"
+          alignItems="center"
+          mt={3}
+        >
+          <Typography variant="body1" color="white">{t("Referrs")}</Typography>
+          <Typography variant="h5" color="white">{0}</Typography>
+        </Grid>
+        <Grid
+          container
+          justifyContent="space-between"
+          alignItems="center"
+          mt={3}
+        >
+          <Typography variant="body1" color="white">{t("Referral rewards")}</Typography>
+          <Typography variant="h5" color="white">{ numberWithCommas(0) } ARB</Typography>
+        </Grid>
       </CardContent>
     </CardWrapper>
   );

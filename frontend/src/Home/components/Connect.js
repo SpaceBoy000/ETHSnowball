@@ -8,13 +8,14 @@ import { useTranslation } from "react-i18next";
 
 const ConnectButton = styled('button')(({ theme }) => ({
   "&:disabled": { background: 'rgba(0, 0, 0, 0.12)', color: 'rgb(150, 150, 150) !important' },
-  borderRadius: "1.25rem",
+  borderRadius: "0rem",
   border: 'none',
   paddingLeft: "1.75rem",
   paddingRight: "1.75rem",
   paddingTop: "0.5rem",
   paddingBottom: "0.5rem",
   fontSize: "1rem",
+  fontFamily: 'joystix',
   lineHeight: "1.5rem",
   textTransform: "uppercase",
   letterSpacing: "0.05em",
@@ -39,6 +40,7 @@ const SmallScreenConnectButton = styled(Button)(({ theme }) => ({
   background: "linear-gradient(159deg, rgb(255, 244, 39) 0%, rgb(255, 61, 61) 84%, rgb(255, 61, 61) 100%)",
   boxShadow: "rgb(0 0 0 / 59%) 6px 6px 20px 6px",
   color: "white",
+  fontFamily: 'joystix',
   [theme.breakpoints.down("lg")]: {
     display: "block",
   },
