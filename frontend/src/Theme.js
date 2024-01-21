@@ -24,28 +24,32 @@ const theme = createTheme({
     }
   },
   typography: {
-    fontFamily: "Roboto",
+    fontFamily: "joystix",
     body1: {
-      fontSize: 20,
+      fontSize: 16,
       fontWeight: "bolder",
+      fontFamily: 'joystix'
     },
     body2: {
       fontSize: 16,
     },
     body5: {
-      fontSize: 40,
+      fontSize: 28,
       color: "#004AAD",
-      fontWeight: 900,
+      fontWeight: 700,
+      fontFamily: 'joystix'
     },
     body6: {
       fontSize: 40,
       color: "#004AAD",
       fontWeight: 900,
+      fontFamily: 'joystix'
     },
     body7: {
-      fontSize: 14,
+      fontSize: 12,
       color: "#004AAD",
       fontWeight: 900,
+      fontFamily: 'joystix'
     },
     allVariants: {
       color: "white", // "rgb(224, 224, 224)",
@@ -62,7 +66,7 @@ const theme = createTheme({
       fontSize: 32,
     },
     h5: {
-      fontSize: 24,
+      fontSize: 16,
       fontWeight: 500,
       color: '#004AAD',
     },
