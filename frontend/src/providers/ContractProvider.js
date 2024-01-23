@@ -2,11 +2,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 import Web3 from "web3";
 
 import abi from "../contracts/abi.json";
+import tokenAbi from "../contracts/tokenAbi.json";
 import { useAuthContext } from "./AuthProvider";
 import { config } from "../config";
 
 export const ContractContext = createContext({
   contract: null,
+  tokenContract: null,
   web: null,
   wrongNetwork: false,
   getBnbBalance: () => null,
@@ -16,6 +18,7 @@ export const ContractContext = createContext({
 
 export const ContractProvider = ({ children }) => {
   const [contract, setContract] = useState();
+  const [tokenContract, setTokenContract] = useState();
   const [web3, setWeb3] = useState();
   const { chainId, setSnackbar } = useAuthContext();
   const [wrongNetwork, setWrongNetwork] = useState(false);
@@ -24,6 +27,7 @@ export const ContractProvider = ({ children }) => {
     if (!chainId) {
       return;
     }
+    console.log("chainId: ", chainId);
     if (parseInt(chainId) !== config.chainId) {
       setSnackbar({
         type: "error",
@@ -39,17 +43,21 @@ export const ContractProvider = ({ children }) => {
     setWeb3(web3Instance);
     const contract = new web3Instance.eth.Contract(abi, config.contractAddress);
     setContract(contract);
+    
+    const tokenContract = new web3Instance.eth.Contract(tokenAbi, config.arbAddress);
+    setTokenContract(tokenContract);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chainId]);
 
-  const getBnbBalance = (address) => web3.eth.getBalance(address);
+  // const getBnbBalance = (address) => web3.eth.getBalance(address);
+  const getBnbBalance = async (address) => { await tokenContract.balanceOf(address).call() };
   const fromWei = (wei, unit = "ether") =>
-    parseFloat(Web3.utils.fromWei(wei, unit)).toFixed(3);
+    parseFloat(Web3.utils.fromWei(wei, unit)).toFixed(2);
   const toWei = (amount, unit = "ether") => Web3.utils.toWei(amount, unit);
 
   return (
     <ContractContext.Provider
-      value={{ web3, contract, wrongNetwork, getBnbBalance, fromWei, toWei }}
+      value={{ web3, tokenContract, contract, wrongNetwork, getBnbBalance, fromWei, toWei }}
     >
       {children}
     </ContractContext.Provider>

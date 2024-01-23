@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&display=swap');
 
 @font-face {
-  font-family: 'PressStart2P'; /* Choose a name for your font */
-  src: url('assets/font/PressStart2P-Regular.ttf') format('truetype'); /* Specify the path to your TTF file */
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
   font-family: 'joystix'; /* Choose a name for your font */
   src: url('assets/font/joystix.monospace-regular.otf') format('truetype'); /* Specify the path to your TTF file */
   font-weight: normal;
