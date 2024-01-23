@@ -2,18 +2,8 @@
 	{
 		"inputs": [
 			{
-				"internalType": "address payable",
-				"name": "_marketingAddress",
-				"type": "address"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_devAddress",
-				"type": "address"
-			},
-			{
 				"internalType": "address",
-				"name": "_randomGenerator",
+				"name": "arb",
 				"type": "address"
 			}
 		],
@@ -40,40 +30,32 @@
 		"type": "event"
 	},
 	{
+		"inputs": [],
+		"name": "ARB_TOKEN",
+		"outputs": [
+			{
+				"internalType": "contract IERC20",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
 			{
 				"internalType": "address",
 				"name": "ref",
 				"type": "address"
 			}
 		],
-		"name": "BuySnows",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_account",
-				"type": "address"
-			}
-		],
-		"name": "CHANGE_devAddress",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_account",
-				"type": "address"
-			}
-		],
-		"name": "CHANGE_marketingAddress",
+		"name": "BuyPixels",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -132,39 +114,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "ClaimRewards",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "ref",
-				"type": "address"
-			}
-		],
-		"name": "CompoundRewards",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "DECREASE_TAX",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "EARLY_WITHDRAWAL_TAX",
 		"outputs": [
 			{
@@ -191,54 +140,9 @@
 	},
 	{
 		"inputs": [],
-		"name": "EXTRA_BONUS",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "LOTTERY_INTERVAL",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "LOTTERY_ROUND",
-		"outputs": [
-			{
-				"internalType": "uint16",
-				"name": "",
-				"type": "uint16"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "LOTTERY_START_TIME",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
+		"name": "Launch",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -291,6 +195,19 @@
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "ref",
+				"type": "address"
+			}
+		],
+		"name": "Pixelate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -366,19 +283,6 @@
 				"type": "uint256"
 			}
 		],
-		"name": "SET_DECREASE_TAX",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
 		"name": "SET_EGGS_TO_HIRE_1MINERS",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -392,33 +296,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "SET_EXTRA_BONUS",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
 		"name": "SET_INVEST_MIN",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "SET_LOTTERY_INTERVAL",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -483,19 +361,6 @@
 				"type": "uint256"
 			}
 		],
-		"name": "SET_WALLET_DEPOSIT_LIMIT",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
 		"name": "SET_WITHDRAWAL_TAX",
 		"outputs": [],
 		"stateMutability": "nonpayable",
@@ -516,33 +381,14 @@
 	},
 	{
 		"inputs": [],
+		"name": "SellMegaPixels",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
 		"name": "TAX",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "WALLET_DEPOSIT_LIMIT",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "WHITELIST_COUNT",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -682,40 +528,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "claimTax",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "devAddress",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "finishLOTTERY",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "fundContract",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -818,149 +630,6 @@
 	},
 	{
 		"inputs": [],
-		"name": "getTotalWhitelistCount",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_account",
-				"type": "address"
-			},
-			{
-				"internalType": "uint16",
-				"name": "_roundID",
-				"type": "uint16"
-			}
-		],
-		"name": "getUserTicketInfo",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint16",
-				"name": "_start",
-				"type": "uint16"
-			},
-			{
-				"internalType": "uint16",
-				"name": "_end",
-				"type": "uint16"
-			}
-		],
-		"name": "getWhitelist",
-		"outputs": [
-			{
-				"internalType": "address[]",
-				"name": "",
-				"type": "address[]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "isWhitelist",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_account",
-				"type": "address"
-			}
-		],
-		"name": "levelGift",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint16",
-				"name": "",
-				"type": "uint16"
-			}
-		],
-		"name": "lotteryInfo",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "winnerAccount",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "totalTicketCnt",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "lotteryStarted",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "marketingAddress",
-		"outputs": [
-			{
-				"internalType": "address payable",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "owner",
 		"outputs": [
 			{
@@ -974,55 +643,9 @@
 	},
 	{
 		"inputs": [],
-		"name": "randomGenerator",
-		"outputs": [
-			{
-				"internalType": "contract IRandomGenerator",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
 		"name": "renounceOwnership",
 		"outputs": [],
 		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "startLOTTERY",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "addr",
-				"type": "address"
-			}
-		],
-		"name": "throwSnowball",
-		"outputs": [],
-		"stateMutability": "payable",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "ticketPrice",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -1105,38 +728,6 @@
 				"internalType": "uint8",
 				"name": "level",
 				"type": "uint8"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "whitelist",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "winTicketID",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
 			}
 		],
 		"stateMutability": "view",
