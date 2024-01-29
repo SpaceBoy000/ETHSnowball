@@ -131,7 +131,7 @@ export default function BakeCard() {
         const intervalID = setInterval(() => {
             try {
                 const last = Number(lasthatch);
-                const data = getCountdown(last + 24 * 3600 + 110); //24 * 3600
+                const data = getCountdown(last + 24 * 3600 + 60); //24 * 3600
                 setCountdown({
                     alive: data.total > 0,
                     days: data.days,
@@ -148,26 +148,6 @@ export default function BakeCard() {
             clearInterval(intervalID)
         }
     }, [lasthatch])
-
-    useEffect(() => {
-        const intervalID = setInterval(() => {
-            try {
-                const data = getCountdown(Number(roundStartTime) + Number(roundIntervalLottery));
-                setCountdownLottery({
-                    alive: data.total > 0,
-                    days: data.days,
-                    hours: data.hours,
-                    minutes: data.minutes,
-                    seconds: data.seconds,
-                });
-            } catch (err) {
-                console.log(err);
-            }
-        }, 1000);
-        return () => {
-            clearInterval(intervalID)
-        }
-    }, [roundStartTime, roundIntervalLottery])
 
     const fetchContractBNBBalance = async () => {
         if (!web3 || wrongNetwork) {
@@ -415,7 +395,7 @@ export default function BakeCard() {
         }
 
         try {
-            await contract.methods.ClaimRewards().send({
+            await contract.methods.SellMegaPixels().send({
                 from: address,
             });
         } catch (err) {

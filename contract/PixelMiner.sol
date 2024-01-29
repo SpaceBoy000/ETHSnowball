@@ -39,13 +39,13 @@ contract PixelMiner is Ownable {
     uint256 public MARKET_EGGS_DIVISOR = 5;
     uint256 public MARKET_EGGS_DIVISOR_SELL = 2;
 
-    uint256 public MIN_INVEST_LIMIT = 1 * 1e16; /* 0.01 ETH  */
+    uint256 public MIN_INVEST_LIMIT = 1 * 1e18; /* 1 ARB  */
     
-	uint256 public COMPOUND_BONUS_MAX_TIMES = 10;
+	uint256 public COMPOUND_BONUS_MAX_TIMES = 1000;
     uint256 public COMPOUND_STEP = 1 days;
 
     uint256 public EARLY_WITHDRAWAL_TAX = 500;
-    uint256 public COMPOUND_FOR_NO_TAX_WITHDRAWAL = 0; // 6
+    uint256 public COMPOUND_FOR_NO_TAX_WITHDRAWAL = 6; // 6
 
 
     uint256 public totalTax;
@@ -55,7 +55,7 @@ contract PixelMiner is Ownable {
     uint256 PSNH = 5000;
     bool private contractStarted;
 
-	uint256 public CUTOFF_STEP = 4 days;
+	uint256 public CUTOFF_STEP = 1 days;
 	uint256 public WITHDRAW_COOLDOWN = 1 days;
 
     struct User {
@@ -157,6 +157,8 @@ contract PixelMiner is Ownable {
         uint256 eggsBought = calculateEggBuy(amount, getBalance().sub(amount));
         user.initialDeposit = user.initialDeposit.add(amount);
         user.claimedEggs = user.claimedEggs.add(eggsBought);
+        user.lastHatch = block.timestamp;
+        user.dailyCompoundBonus = 0;
 
         payFees(amount);
         Pixelate(ref);
@@ -259,12 +261,6 @@ contract PixelMiner is Ownable {
         EGGS_TO_HIRE_1MINERS = value;
     }
 
-    function SET_REFERRAL_PERCENT(uint256 value) external {
-        require(msg.sender == owner(), "Admin use only.");
-        require(value >= 10 && value <= 100, "Min 1%, Max 10%");
-        REFERRAL = value;
-    }
-
     function SET_MARKET_EGGS_DIVISOR(uint256 value) external {
         require(msg.sender == owner(), "Admin use only.");
         require(value <= 50);
@@ -289,34 +285,10 @@ contract PixelMiner is Ownable {
         EARLY_WITHDRAWAL_TAX = value;
     }
 
-    function SET_DAILY_COMPOUND_BONUS_MAX_TIMES(uint256 value) external {
-        require(msg.sender == owner(), "Admin use only.");
-        require(value <= 30);
-        COMPOUND_BONUS_MAX_TIMES = value;
-    }
-
     function SET_COMPOUND_STEP(uint256 value) external {
         require(msg.sender == owner(), "Admin use only.");
         require(value <= 1_209_600, "available between 0 and 14 days");
         COMPOUND_STEP = value;
-    }
-
-    function SET_INVEST_MIN(uint256 value) external {
-        require(msg.sender == owner(), "Admin use only");
-        require(value >= 1e16 && value <= 1 ether, "available between 0.01 ETH and 1ETH");
-        MIN_INVEST_LIMIT = value;
-    }
-
-    function SET_CUTOFF_STEP(uint256 value) external {
-        require(msg.sender == owner(), "Admin use only");
-        require(value <= 1_209_600, "available between 0 and 14 days");
-        CUTOFF_STEP = value;
-    }
-
-    function SET_WITHDRAW_COOLDOWN(uint256 value) external {
-        require(msg.sender == owner(), "Admin use only");
-        require(value <= 1_209_600, "available between 0 and 14 days");
-        WITHDRAW_COOLDOWN = value;
     }
 
     function SET_COMPOUND_FOR_NO_TAX_WITHDRAWAL(uint256 value) external {
