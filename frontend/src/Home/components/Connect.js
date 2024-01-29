@@ -32,14 +32,15 @@ const ConnectButton = styled('button')(({ theme }) => ({
 const SmallScreenConnectButton = styled(Button)(({ theme }) => ({
   display: "none",
   marginTop: -24,
-  marginBottom: 48,
+  // marginBottom: 48,
   width: "95%",
   marginLeft: "auto",
   marginRight: "auto",
   borderRadius: 5,
-  background: "linear-gradient(159deg, rgb(255, 244, 39) 0%, rgb(255, 61, 61) 84%, rgb(255, 61, 61) 100%)",
-  boxShadow: "rgb(0 0 0 / 59%) 6px 6px 20px 6px",
+  background: theme.button.primary.main,
+  // boxShadow: "rgb(0 0 0 / 59%) 6px 6px 20px 6px",
   color: "white",
+  fontSize: "1rem",
   fontFamily: 'joystix',
   [theme.breakpoints.down("lg")]: {
     display: "block",
@@ -79,9 +80,6 @@ export default function Connect({ responsive = true }) {
       >
         {address ? t("Disconnect") : t("Connect")}
       </SmallScreenConnectButton>
-      {/* <SmallScreenLanguageButton>
-        <DropdownLanguage />
-      </SmallScreenLanguageButton> */}
     </>
   );
 }

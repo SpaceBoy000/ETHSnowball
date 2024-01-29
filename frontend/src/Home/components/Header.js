@@ -71,7 +71,7 @@ export default function Header() {
                   setMobile(true)
                 }}>
                   <Typography variant="h6">
-                    <a href="/whitepaper.pdf" target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
+                    <a href={ config.doc_link } target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
                       Docs
                     </a>
                   </Typography>
@@ -98,7 +98,7 @@ export default function Header() {
                   setMobile(true)
                 }}>
                   <Typography variant="h6">
-                    <a href="https://t.me/" target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
+                    <a href={ config.telegram_link } target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
                       Telegram
                     </a>
                   </Typography>
@@ -107,7 +107,7 @@ export default function Header() {
                   setMobile(true)
                 }}>
                   <Typography variant="h6">
-                    <a href="https://twitter.com/" target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
+                    <a href={ config.twitter_link } target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
                       Twitter
                     </a>
                   </Typography>
@@ -117,7 +117,7 @@ export default function Header() {
               <div
                 className="mobile_connect"
               >
-                <Connect />
+                <Connect responsive={false}/>
               </div>
             </div>
             <div
@@ -140,7 +140,7 @@ export default function Header() {
         <Grid className="header_menu" item xs={0} sm={0} md={6}>
           <Item>
             <Typography variant="h6" textAlign="center" color='#004AAD'>
-              <a href="/whitepaper.pdf" target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
+              <a href={ config.doc_link } target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
                 Docs
               </a>
             </Typography>
@@ -161,14 +161,14 @@ export default function Header() {
           </Item>
           <Item>
             <Typography variant="h6" textAlign="center" color='#004AAD'>
-              <a href="https://t.me/" target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
+              <a href={ config.telegram_link } target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
                 Telegram
               </a>
             </Typography>
           </Item>
           <Item>
             <Typography variant="h6" textAlign="center" color='#004AAD'>
-              <a href="https://twitter.com/" target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
+              <a href={ config.twitter_link } target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
                 Twitter
               </a>
             </Typography>

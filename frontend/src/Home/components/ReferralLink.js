@@ -95,7 +95,7 @@ export default function ReferralLink({ address }) {
           alignItems="center"
           mt={3}
         >
-          <Typography variant="body1" color="white">{t("Referrs")}</Typography>
+          <Typography variant="body1" color="white">{t("Referrals")}</Typography>
           <Typography variant="h5" color="white">{0}</Typography>
         </Grid>
         <Grid
