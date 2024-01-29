@@ -53,7 +53,7 @@ const Input = styled("input")(({ theme }) => ({
   color: theme.palette.primary.main,
 }));
 
-export default function ReferralLink({ address }) {
+export default function ReferralLink({ address, referrals, refRewards }) {
   const link = `${window.origin}?ref=${address}`;
   const { t, i18n } = useTranslation();
 
@@ -96,7 +96,7 @@ export default function ReferralLink({ address }) {
           mt={3}
         >
           <Typography variant="body1" color="white">{t("Referrals")}</Typography>
-          <Typography variant="h5" color="white">{0}</Typography>
+          <Typography variant="h5" color="white">{ referrals }</Typography>
         </Grid>
         <Grid
           container
@@ -105,7 +105,7 @@ export default function ReferralLink({ address }) {
           mt={3}
         >
           <Typography variant="body1" color="white">{t("Referral rewards")}</Typography>
-          <Typography variant="h5" color="white">{ numberWithCommas(0) } ARB</Typography>
+          <Typography variant="h5" color="white">{ numberWithCommas(refRewards) } ARB</Typography>
         </Grid>
       </CardContent>
     </CardWrapper>
