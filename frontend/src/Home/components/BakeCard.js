@@ -83,6 +83,8 @@ export default function BakeCard() {
     const [lasthatch, setLasthatch] = useState(0);
     const [compoundTimes, setCompoundTimes] = useState(0);
     const [yourLevel, setYourLevel] = useState(0);
+    const [referrals, setReferrals] = useState(0);
+    const [refRewards, setRefRewards] = useState(0);
     const [countdown, setCountdown] = useState({
         alive: true,
         days: 0,
@@ -227,13 +229,15 @@ export default function BakeCard() {
             ]);
 
             console.log("approvedAmount: ", fromWei(`${approvedAmount}`));
-            
-            //   .calculateEggSell(beansAmount * EGGS_TO_HIRE_1MINERS)
-            //   .call()
-            //   .catch((err) => {
-            //     console.error("calc_egg_sell", err);
-            //     return 0;
-            //   });
+            console.log("UserInfo: ", userInfo);
+
+            const refReward = await contract.methods.calculateEggSell(userInfo.referralEggRewards)
+                .call()
+                .catch((err) => {
+                    console.error("calculateEggSell", err);
+                    return 0;
+                });
+            console.log("refReward: ", refReward);
             setApprovedAmount(fromWei(`${approvedAmount}`));
 
             setWalletBalance({
@@ -244,6 +248,8 @@ export default function BakeCard() {
             setLasthatch(userInfo.lastHatch);
             setCompoundTimes(userInfo.dailyCompoundBonus);
             setYourLevel(userInfo.level);
+            setReferrals(userInfo.referralsCount);
+            setRefRewards(fromWei(`${refReward}`));
         } catch (err) {
             console.error(err);
             setWalletBalance({
@@ -344,7 +350,7 @@ export default function BakeCard() {
             : "0xBA2Dd8dB1728D8DE3B3b05cc1a5677F005f34Ba3"; // "0x0000000000000000000000000000000000000000";
         return ref;
     };
-    
+
     const approve = async () => {
         console.log("=========== approve ==============");
         setLoading(true);
@@ -361,7 +367,7 @@ export default function BakeCard() {
         fetchWalletBalance();
         setLoading(false);
     };
-    
+
     const bake = async () => {
         setLoading(true);
 
@@ -474,9 +480,9 @@ export default function BakeCard() {
                                 variant="contained"
                                 fullWidth
                                 disabled={wrongNetwork || !address || +bakeBNB === 0 || loading}
-                                onClick={bakeBNB > approvedAmount ? approve : bake }
+                                onClick={bakeBNB > approvedAmount ? approve : bake}
                             >
-                                { bakeBNB > approvedAmount ? t("Approve") : t("BUY PIXELS")}
+                                {bakeBNB > approvedAmount ? t("Approve") : t("BUY PIXELS")}
                             </DevilButton>
                         </Box>
                         <Divider />
@@ -537,68 +543,11 @@ export default function BakeCard() {
                     </Box>
                 </CardContent>
             </CardWrapper>
-            <ReferralLink address={address} />
-            {/* <CardWrapper>
-      <CardContent>
-        <Typography variant="h5" color="#004AAD" borderBottom="6px solid" paddingBottom={1}>
-          {t("Snowball Lottery")}
-        </Typography>
-        <Grid
-          container
-          justifyContent="space-between"
-          alignItems="center"
-          mt={3}
-        >
-          <Typography variant="body1" color="black">{t("Your Level")}</Typography>
-          <Typography variant="h5">{ yourLevel }</Typography>
-        </Grid>
-        <Box paddingTop={1} paddingBottom={1}>
-        <Divider />
-        </Box>
-        <Grid
-          container
-          justifyContent="space-between"
-          alignItems="center"
-          mt={3}
-        >
-          <Typography variant="body1" color="black">{t("Countdown Timer")}</Typography>
-          <Typography variant="h5">
-          { (roundStarted && countdownLottery.alive) ? countdownLottery.days + "D " + countdownLottery.hours + "H " + countdownLottery.minutes + "M " + countdownLottery.seconds + "S" : "0D 0H 0M 0S" }
-          </Typography>
-        </Grid>
-        <Grid
-          container
-          justifyContent="space-between"
-          alignItems="center"
-          mt={3}
-        >
-          <Typography variant="body1" color="black">{t("Last Winner")}</Typography>
-          <Typography variant="h5">
-            { shorten(lotteryWinner) }
-          </Typography>
-        </Grid>
-        <Grid
-          container
-          justifyContent="space-between"
-          alignItems="center"
-          mt={3}
-        >
-          <Typography variant="body1" color="black">{t("Total Tickets")}</Typography>
-          <Typography variant="h5">{ numberWithCommas(totalTicketCount) }</Typography>
-        </Grid>
-        <Grid
-          container
-          justifyContent="space-between"
-          alignItems="center"
-          mt={3}
-        >
-          <Typography variant="body1" color="black">{t("Your Tickets")}</Typography>
-          <Typography variant="h5">
-            {roundStarted ? numberWithCommas(ticketCount) : numberWithCommas(lastTicketCount)}
-          </Typography>
-        </Grid>
-      </CardContent>
-    </CardWrapper> */}
+            <ReferralLink
+                address={address}
+                referrals={referrals}
+                refRewards={refRewards}
+            />
         </>
     );
 }
