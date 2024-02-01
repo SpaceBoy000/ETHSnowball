@@ -80,6 +80,7 @@ export default function BakeCard() {
 
     const EGGS_TO_HIRE_1MINERS = 1440000; // 3.3%, 864000: 10%;
 
+    const [compoundStep, setCompoundStep] = useState(86400);
     const [lasthatch, setLasthatch] = useState(0);
     const [compoundTimes, setCompoundTimes] = useState(0);
     const [yourLevel, setYourLevel] = useState(0);
@@ -95,20 +96,7 @@ export default function BakeCard() {
 
     // Lottery
     const zeroAddrss = '0x0000000000000000000000000000000000000000';
-    const [roundStarted, setRoundStarted] = useState(false);
-    const [roundStartTime, setRoundStartTime] = useState(0);
-    const [lotteryWinner, setLotteryWinner] = useState(zeroAddrss);
-    const [roundIntervalLottery, setRoundIntervalLottery] = useState(0);
-    const [ticketCount, setTicketCount] = useState(0);
-    const [lastTicketCount, setLastTicketCount] = useState(0);
-    const [totalTicketCount, setTotalTicketCount] = useState(0);
-    const [countdownLottery, setCountdownLottery] = useState({
-        alive: true,
-        days: 0,
-        hours: 0,
-        minutes: 0,
-        seconds: 0
-    })
+
 
     const getCountdown = (lastCompound) => {
         const now = Date.now() / 1000;
@@ -131,7 +119,7 @@ export default function BakeCard() {
         const intervalID = setInterval(() => {
             try {
                 const last = Number(lasthatch);
-                const data = getCountdown(last + 24 * 3600 + 60); //24 * 3600
+                const data = getCountdown(last + Number(compoundStep)); //24 * 3600
                 setCountdown({
                     alive: data.total > 0,
                     days: data.days,
@@ -177,7 +165,7 @@ export default function BakeCard() {
         try {
             console.log("address: ", address);
 
-            const [approvedAmount, bnbAmount, rewardsAmount, userInfo] = await Promise.all([
+            const [approvedAmount, bnbAmount, rewardsAmount, userInfo, compoundStep] = await Promise.all([
                 tokenContract.methods
                     .allowance(address, config.contractAddress)
                     .call()
@@ -205,11 +193,19 @@ export default function BakeCard() {
                     .catch((err) => {
                         console.error("userInfo error", err);
                         return 0;
+                    }),
+                contract.methods
+                    .COMPOUND_STEP()
+                    .call()
+                    .catch((err) => {
+                        console.error("userInfo error", err);
+                        return 0;
                     })
             ]);
 
             console.log("approvedAmount: ", fromWei(`${approvedAmount}`));
             console.log("UserInfo: ", userInfo);
+            setCompoundStep(compoundStep);
 
             const refReward = await contract.methods.calculateEggSell(userInfo.referralEggRewards)
                 .call()
@@ -372,7 +368,7 @@ export default function BakeCard() {
         const ref = getRef();
 
         try {
-            await contract.methods.CompoundRewards(ref).send({
+            await contract.methods.Pixelate(ref).send({
                 from: address,
             });
         } catch (err) {

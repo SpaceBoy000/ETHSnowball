@@ -16,8 +16,8 @@ pragma solidity 0.8.17;
 *                                                                                    
 * PixelMiner - Arbitrum Miner
 *
-* Twitter  : https://twitter.com/
-* Telegram : https://t.me/
+* Twitter  : https://twitter.com/PixelMiner_Arb
+* Telegram : https://t.me/ThePixelMiner
 *
 */
 
