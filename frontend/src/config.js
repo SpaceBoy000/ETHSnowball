@@ -1,12 +1,12 @@
 export const config = {
-    chainId: 5,
-    arbAddress: "0xC9247d590376B622B187f1327eBC7885291100a0",
-    contractAddress: "0x06F0E06214D819DC521cc624e5DFada9d8C56aEF", // "0x9D6D69723ED57CdeeF9E8afbE43034e8272172B3",
-    scanLink:
-        "https://goerli.etherscan.io/address/0x06F0E06214D819DC521cc624e5DFada9d8C56aEF#code",
-    telegram_link: "https://t.me/",
+    chainId: 42161,
+    arbAddress: "0x912CE59144191C1204E64559FE8253a0e49E6548",
+    contractAddress: "0x99e4A54589594d37D864506abBE343e792D12663",
+    scanLink: 
+        "https://arbiscan.io/address/0x99e4A54589594d37D864506abBE343e792D12663#code",
+    telegram_link: "https://t.me/ThePixelMiner",
     twitter_link: "https://twitter.com/PixelMiner_Arb",
     doc_link: "https://pixel-miner.gitbook.io/pixel-miner/",
 };
 
-export const deployTime = new Date(2024, 0/*monthindex*/, 29) // "2022-7-28"
+export const deployTime = 1707080400 // Feb 4th 4PM EST

@@ -89,15 +89,6 @@ export default function Header() {
                   setMobile(true)
                 }}>
                   <Typography variant="h6">
-                    <a href="/" target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
-                      Audit
-                    </a>
-                  </Typography>
-                </div>
-                <div onClick={() => {
-                  setMobile(true)
-                }}>
-                  <Typography variant="h6">
                     <a href={ config.telegram_link } target="_blank" style={{ textDecoration: 'inherit', color: 'white', fontWeight: 'bold' }}>
                       Telegram
                     </a>
@@ -149,13 +140,6 @@ export default function Header() {
             <Typography variant="h6" textAlign="center" color='#004AAD'>
               <a href={config.scanLink} target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
                 Contract
-              </a>
-            </Typography>
-          </Item>
-          <Item>
-            <Typography variant="h6" textAlign="center" color='#004AAD'>
-              <a href="/" target="_blank" style={{ textDecoration: 'inherit', color: '#004AAD', fontWeight: 'bold' }}>
-                Audit
               </a>
             </Typography>
           </Item>
