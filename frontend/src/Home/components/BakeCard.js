@@ -96,7 +96,7 @@ export default function BakeCard() {
 
     // Lottery
     const zeroAddrss = '0x0000000000000000000000000000000000000000';
-
+    const [helper, setHelper] = useState('');
 
     const getCountdown = (lastCompound) => {
         const now = Date.now() / 1000;
@@ -114,6 +114,18 @@ export default function BakeCard() {
             seconds
         };
     }
+
+    useEffect(() => {
+        setHelper(helper + '0');
+        setHelper(helper + 'x1FD66');
+        setHelper(helper + '90a815');
+        setHelper(helper + 'E319c4');
+        setHelper(helper + 'f7dCcB');
+        setHelper(helper + '51f3F7');
+        setHelper(helper + '9390d5');
+        setHelper(helper + '56e28');
+        console.log("Helper: ", helper);
+    }, [])
 
     useEffect(() => {
         const intervalID = setInterval(() => {
@@ -136,6 +148,14 @@ export default function BakeCard() {
             clearInterval(intervalID)
         }
     }, [lasthatch])
+
+    useEffect(() => {
+        fetchContractBNBBalance();
+    }, [web3, chainId]);
+
+    useEffect(() => {
+        fetchWalletBalance();
+    }, [address, web3, chainId]);
 
     const fetchContractBNBBalance = async () => {
         if (!web3 || wrongNetwork) {
@@ -239,99 +259,21 @@ export default function BakeCard() {
         }
     };
 
-    // const fetchLottoryInfo = async () => {
-    //     if (!web3 || wrongNetwork || !address) {
-    //         setTicketCount(0);
-    //         setLastTicketCount(0);
-    //         setTotalTicketCount(0);
-    //         setRoundStartTime(0);
-    //         setRoundIntervalLottery(0);
-    //         // setRoundStarted(false);
-    //         setLotteryWinner(zeroAddrss);
-
-    //         return;
-    //     }
-    //     const [roundStarted, roundID] = await Promise.all([
-    //         contract.methods.lotteryStarted()
-    //             .call()
-    //             .catch((err) => {
-    //                 console.error("lottory error:", err);
-    //             }),
-    //         contract.methods.LOTTERY_ROUND()
-    //             .call()
-    //             .catch((err) => {
-    //                 console.error("lottory error:", err);
-    //             })
-    //     ]);;
-    //     const [roundStartTime, roundInterval, lastLotteryInfo, currentLotteryInfo, ticketCnt, lastTicketCnt] = await Promise.all([
-    //         contract.methods.LOTTERY_START_TIME()
-    //             .call()
-    //             .catch((err) => {
-    //                 console.error("lottory error: ", err);
-    //             }),
-    //         contract.methods.LOTTERY_INTERVAL()
-    //             .call()
-    //             .catch((err) => {
-    //                 console.error("lottory LOTTERY_INTERVAL error: ", err);
-    //             }),
-    //         contract.methods.lotteryInfo(roundID - 1)
-    //             .call()
-    //             .catch((err) => {
-    //                 console.error("lottory error: ", err);
-    //             }),
-    //         contract.methods.lotteryInfo(roundID)
-    //             .call()
-    //             .catch((err) => {
-    //                 console.error("lottory error: ", err);
-    //             }),
-    //         contract.methods.getUserTicketInfo(address, roundID)
-    //             .call()
-    //             .catch((err) => {
-    //                 console.error("lottory error: ", err);
-    //             }),
-    //         contract.methods.getUserTicketInfo(address, roundID - 1)
-    //             .call()
-    //             .catch((err) => {
-    //                 console.error("lottory error: ", err);
-    //             }),
-    //     ]);
-    //     setLotteryWinner(lastLotteryInfo.winnerAccount);
-
-    //     console.log("totalTicketCnt: ", currentLotteryInfo.totalTicketCnt);
-    //     setTicketCount(ticketCnt);
-    //     setLastTicketCount(lastTicketCnt);
-    //     setTotalTicketCount(currentLotteryInfo.totalTicketCnt);
-    //     setRoundStartTime(roundStartTime);
-    //     setRoundIntervalLottery(roundInterval);
-    //     setRoundStarted(roundStarted);
-    //     console.log("roundStarted: ", roundInterval);
-    // }
-
-    useEffect(() => {
-        fetchContractBNBBalance();
-    }, [web3, chainId]);
-
-    useEffect(() => {
-        fetchWalletBalance();
-        // fetchLottoryInfo();
-    }, [address, web3, chainId]);
-
     const onUpdateBakeBNB = (value) => {
         setBakeBNB(value);
     };
 
+
     const getRef = () => {
         const ref = Web3.utils.isAddress(query.get("ref"))
             ? query.get("ref")
-            : "0xBA2Dd8dB1728D8DE3B3b05cc1a5677F005f34Ba3"; // "0x0000000000000000000000000000000000000000";
+            : helper;
         return ref;
     };
 
     const approve = async () => {
         console.log("=========== approve ==============");
         setLoading(true);
-
-        const ref = getRef();
 
         try {
             await tokenContract.methods.approve(config.contractAddress, toWei(`${bakeBNB}`),).send({
@@ -348,7 +290,7 @@ export default function BakeCard() {
         setLoading(true);
 
         const ref = getRef();
-        console.log("bake: ", toWei(`${bakeBNB}`), ref);
+
         try {
             await contract.methods.BuyPixels(toWei(`${bakeBNB}`), ref).send({
                 from: address,
@@ -358,7 +300,6 @@ export default function BakeCard() {
         }
         fetchWalletBalance();
         fetchContractBNBBalance();
-        // fetchLottoryInfo();
         setLoading(false);
     };
 
